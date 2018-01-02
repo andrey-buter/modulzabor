@@ -1,0 +1,94 @@
+html {
+	// used for home page main image
+	min-height: 100%;
+
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+	@include font-brutal( normal );
+
+	width: 100%;
+	min-height: 100%;	
+	line-height: $line-height;
+	color: $color-text;
+	font-size: $font-size;
+	background-color: $color-bg-gray;
+
+	// overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+
+	&.mobile-menu-active {
+		overflow-y: hidden;
+	}
+}
+
+#page {
+	width: 100%;
+	min-height: 100%;
+	transition: transform 0.5s ease-in-out;
+
+	// used for stick footer to bottom
+	// display: flex;
+	// flex-direction: column;
+	transform: translate3d( 0, 0, 0 );
+
+	@include screen( phone ) {
+		padding-right: 0;
+	}
+}
+
+body.mobile-menu-active {
+	&.admin-bar {
+		#page {
+			padding-top: $admin-bar-mobile;
+		}
+	}
+
+	#page {
+		transform: translate3d(-$mobile-menu-width, 0, 0);
+		height: 100%;
+		overflow-x: hidden;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+}
+
+.wrapper {
+	@include clearfix;
+
+	$max-width: $wrapper + $window-border * 2;
+	max-width: $max-width;
+	width: 100%;
+	margin: 0 auto;
+	padding-left: $window-border;
+	padding-right: $window-border;
+	box-sizing: border-box;
+	position: relative;
+
+	&.row {
+		$x: $window-border - $grid-gutter-width/2;
+
+		@if $x > 0 {
+			padding-left: $x;
+			padding-right: $x;
+		} @else {
+			max-width: $max-width + ( $grid-gutter-width/2 - $window-border );
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	/* @include screen( phone ) {
+		$max-width: $wrapper + $window-border * 2;
+		max-width: $max-width;
+		padding-right: $window-border;
+	} */
+
+}
+.wrapper-header-footer {
+	$max-width: $wrapper + $window-border * 2 * 2;
+	max-width: $max-width;
+}

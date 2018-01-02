@@ -1,0 +1,28 @@
+// Make sure the charset is set appropriately
+@charset "UTF-8";
+
+// Load Custom Foundation settings
+@import "core/variables";
+@import "core/mixins/utils";
+// @import "core/mixins/sprites";
+// @import "core/mixins/fonts";
+// @import "core/mixins/mixins";
+
+// @import "core/reset";
+// @import "core/bootstrap";
+// @import "core/formatting";
+// @import "core/layout";
+// @import "core/grid";
+
+@import 'app-shell/_colors';
+@import 'app-shell/_card';
+@import 'app-shell/_core';
+@import 'app-shell/_dialog';
+@import 'app-shell/_side-nav';
+@import 'app-shell/_main';
+@import 'app-shell/_header';
+@import 'app-shell/_loader';
+@import 'app-shell/_z-index';
+@import 'app-shell/_toast';
+
+@import "main";

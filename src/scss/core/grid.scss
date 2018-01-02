@@ -1,0 +1,34 @@
+//
+// Grid system
+// --------------------------------------------------
+
+
+.row-inline > * {
+	display: inline-block;
+	vertical-align: top;
+	float: none;
+}
+
+.row-flex {
+	align-items: stretch;
+	display: flex;
+	display: -ms-flexbox;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+
+	html.no-flexbox & > * {
+		display: inline-block;
+		vertical-align: top;
+		float: none;
+	}
+
+	&:before {
+		display: none;
+	}
+}
+
+@include screen( lg ) {
+	.col-lg-1_5 {
+		width: 20%;
+	}
+}

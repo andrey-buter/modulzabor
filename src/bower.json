@@ -1,0 +1,13 @@
+{
+  "name": "nrec",
+  "version": "1.0",
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.1",
+    "responsive-bootstrap-toolkit": "~2.5.1",
+    "angular": "^1.5.8",
+    "jquery-touchswipe": "^1.6.18",
+    "localforage": "^1.5.5"
+  },
+  "private": true,
+  "devDependencies": {}
+}

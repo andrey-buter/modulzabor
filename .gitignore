@@ -1,0 +1,20 @@
+*~
+.git
+*.bak
+*.log
+.cache
+temp
+tmp
+*.tmp
+imagecache*
+gt-cache
+ics-importer-cache 
+
+# Theme assets
+?sass-cache
+?js-cache
+bower_components
+node_modules
+npm-debug.log
+error_log
+*deploy*

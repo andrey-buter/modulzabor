@@ -1,0 +1,149 @@
+
+
+/* ==========================================================================
+   Mixines
+============================================================================ */
+
+
+
+
+/* =Gradients 
+============================================================================ */
+
+@mixin gradient($from, $to){
+	background: $from;
+	background: -moz-linear-gradient(top, $from 0%, $to 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$from), color-stop(100%,$to));
+	background: -webkit-linear-gradient(top, $from 0%,$to 100%);
+	background: -o-linear-gradient(top, $from 0%,$to 100%);
+	background: -ms-linear-gradient(top, $from 0%,$to 100%);
+	background: linear-gradient(to bottom, $from 0%,$to 100%);
+}
+
+/* =Other
+============================================================================ */
+
+@mixin safari() {
+	body.safari-browser & { @content; }
+}
+
+
+
+@mixin title() {
+	@include font-brutal( medium );
+
+	// letter-spacing: -1px;
+	line-height: 1.1;
+	margin-bottom: 20px;
+}
+
+
+
+
+@mixin transition( $prop: 'all', $duration: .2s, $func: 'ease', $delay: 0s ) {
+	// content: $prop;
+	transition: #{$prop} #{$duration} #{$func} #{$delay};
+}
+
+
+@mixin circle-image() {
+	position: relative;
+	overflow: hidden;
+
+	&:before {
+		border-radius: 50%;
+		content: '';
+		position: absolute;
+		width: 98%;
+		height: 98%;
+		left: 1%;
+		top: 1%;
+		box-shadow: 0 0 0 100px #fff;
+		z-index: 1;
+	}
+
+	img {
+		margin: 0;
+		display: block;
+	}
+}
+
+@mixin mobile-toggler-default() {
+	$height: 3px;
+	$width: 30px;
+	$space: 5px;
+	$color: #000;
+
+	$pt: 31px;
+	$pl: 17px;
+
+	box-sizing: content-box;
+	cursor: pointer;
+	display: block;
+	height: $height;
+	width: $width;
+	padding: $pt $pl;
+	z-index: 1050;
+
+	body.admin-bar & {
+		top: 13px + $admin-bar-mobile;
+	}
+
+	span {
+		position: relative;
+
+		&,
+		&:before,
+		&:after {
+			background-color: $color;
+			box-sizing: content-box;
+			height: $height;
+			width: $width;
+			display: block;
+		}
+
+		&:before,
+		&:after {
+			content: "";
+			left: 0;
+			position: absolute;
+			transition: all 0.5s ease-in-out 0s;
+		}
+
+		&:before {
+			top: -( $space + $height );
+		}
+		&:after {
+			bottom: -( $space + $height );
+		}
+	}
+}
+
+@mixin mobile-toggler-static() {
+
+}
+
+@mixin mobile-toggler-rotate() {
+	@include mobile-toggler-default();
+
+	transform: rotate(0deg);
+
+	body.mobile-menu-active & {
+		span {
+			background: transparent;
+
+			&:before,
+			&:after {
+				top: 0;
+				bottom: auto;
+			}
+
+			&:before {
+				transform: rotate(45deg);
+			}
+			&:after {
+				transform: rotate(-45deg);
+			}
+		}
+	}	
+}
