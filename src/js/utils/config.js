@@ -1,17 +1,17 @@
 const GLOBALS = {
 	prolet: {
 		size: 275,
-		price: 5,
+		price: 45,
 	},
 	stolbs: {
 		17: {
 			// type : price
-			normal: 10,
-			reinforced: 12
+			normal: 65,
+			reinforced: 75
 		},
 		20: {
-			normal: 14,
-			reinforced: 16
+			normal: 70,
+			reinforced: 80
 		}
 	},
 	vorotaPositions: [
@@ -20,13 +20,35 @@ const GLOBALS = {
 			id: 'without'
 		},
 		{
-			label: 'Ворота и калитка вместе',
+			label: 'Вместе',
 			id: 'together',
 		},
 		{
-			label: 'Ворота и калитка раздельно',
+			label: 'Раздельно',
 			id: 'different'
 		}
+	],
+	installation: [
+		{
+			id: 'without',
+			label: 'Без установки',
+			price: 0,
+		},
+		{
+			id: 'with',
+			label: 'С установкой',
+			price: 22 // за м.п
+		},
+	],
+	delivery: [
+		{
+			id: 'yourself',
+			label: 'Без доставки',
+		},
+		{
+			id: 'we',
+			label: 'С доставкой',
+		},
 	]
 }
 

@@ -5,6 +5,7 @@
 // import DBService from './services/db';
 // import DBFavoriteService from './services/db-favorite';
 import AppRootComponent from './components/app-root-component';
+import Result from './components/result';
 // import ConfigUIRouter from './ui-router/config';
 
 
@@ -16,6 +17,7 @@ angular.module( 'myApp', ['ui.router'] )
 	// .service( 'dbFavoriteService', DBFavoriteService )
 	
 	.component( 'appRootComponent', AppRootComponent )
+	.component( 'result', Result )
 
 
 	.config( $stateProvider => {

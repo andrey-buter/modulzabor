@@ -1,63 +1,46 @@
 import Prolet from '../classes/Prolet';
 import Vorota from '../classes/Vorota';
+import Install from '../classes/Install';
 import GLOBALS from '../utils/config';
 
 class AppRootComponent {
-	constructor( $sce ) {
-		this.$sce = $sce;
-
+	constructor() {
 		this.generalLength = '';
 		this.includeVorota = '';
 		this.vorotaLength = '';
 
-		this.error  = 'Введите длину забора.';
-		this.result = this.error;
+		this.result = null;
 
 		this.stolbs = Object.keys( GLOBALS.stolbs );
 		this.stolbSize = this.stolbs[0];
 		this.vorotaPositions = GLOBALS.vorotaPositions;
 		this.vorotaPosition = this.vorotaPositions[0];
+		this.installation = GLOBALS.installation;
+		this.installType = this.installation[0];
+		this.delivery = GLOBALS.delivery;
+		this.deliveryType = this.delivery[0];
 	}
 	calc() {
 		let length = this.generalLength * 100;
 
 		if ( ! length ) {
-			this.result = this.error;
+			this.result = null;
 			return;
 		}
 
+		let install = new Install( length, this.installType );
 		let vorota = new Vorota( this.stolbSize, this.vorotaPosition.id );
 
 		length -= vorota.getLength();
 
 		let prolet = new Prolet( this.stolbSize, length );
 
-		this.result = this.showResultMessage( vorota, prolet );
-	}
 
-	showResultMessage( vorota, prolet ) {
-		let price = vorota.getPrice() + prolet.getPrice();
-		let vorotaMsg = '';
-
-		if ( vorota.getStolbCount() > 0 ) {
-			vorotaMsg = `
-				Ворота и калитка: (${vorota.getPrice()} руб.) <br>
-				- усиленные столбы: ${vorota.getStolbCount()} <br>
-			`;			
+		this.result = {
+			vorota,
+			prolet,
+			install
 		}
-
-		return `
-			${vorotaMsg}
-			Забор: (${prolet.getPrice()} руб.) <br> 
-			- столбы: ${prolet.getStolbCount()} <br>
-			- пролеты: ${prolet.getProletCount()} <br>
-			Сумма: <br>
-			${price} руб.
-		`;
-	}
-
-	trustAsHtml( text ) {
-		return this.$sce.trustAsHtml( text );
 	}
 }
 
@@ -98,17 +81,21 @@ export default {
 					{{ size }}
 				</label>
 			</div>
+			<hr />
 			<div>
-				<label ng-repeat="position in $ctrl.vorotaPositions" for="position-{{ position.id }}">
-					<input 
-						id="position-{{ position.id }}"
-						type="radio"
-						ng-model="$ctrl.vorotaPosition"
-						ng-value="position"
-						ng-change="$ctrl.calc()"
-					>
-					{{ position.label }}
-				</label>
+				Ворота и калитка
+				<div ng-repeat="position in $ctrl.vorotaPositions">
+					<label for="position-{{ position.id }}">
+						<input 
+							id="position-{{ position.id }}"
+							type="radio"
+							ng-model="$ctrl.vorotaPosition"
+							ng-value="position"
+							ng-change="$ctrl.calc()"
+						>
+						{{ position.label }}
+					</label>
+				</div>
 				<div ng-if="$ctrl.includeVorota">
 					<label for="kalitkaLength">
 						Длина калитки
@@ -132,8 +119,40 @@ export default {
 					</label>
 				</div>
 			</div>
+			<hr />
+			<div>
+				Установка
+				<div ng-repeat="install in $ctrl.installation">
+					<label for="install-{{ install.id }}">
+						<input 
+							id="install-{{ install.id }}"
+							type="radio"
+							ng-model="$ctrl.installType"
+							ng-value="install"
+							ng-change="$ctrl.calc()"
+						>
+						{{ install.label }}
+					</label>
+				</div>
+			</div>
+			<hr />
+			<div>
+				Доставка
+				<div ng-repeat="item in $ctrl.delivery">
+					<label for="delivery-{{ item.id }}">
+						<input 
+							id="delivery-{{ item.id }}"
+							type="radio"
+							ng-model="$ctrl.deliveryType"
+							ng-value="item"
+							ng-change="$ctrl.calc()"
+						>
+						{{ item.label }}
+					</label>
+				</div>
+			</div>
 		</div>
-		<div class="card" ng-bind-html="$ctrl.trustAsHtml( $ctrl.result )"></div>
+		<result result="$ctrl.result"></result>
 	`,
 	controller: AppRootComponent
 }
