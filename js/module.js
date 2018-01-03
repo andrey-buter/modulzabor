@@ -357,7 +357,7 @@ var Result = function () {
 				installMsg = '\n\t\t\t\t\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430: ' + install.getLength() + ' \u043C.\u043F. - ' + install.getPrice() + ' \u0440\u0443\u0431. <br> \n\t\t\t\t<hr />\n\t\t\t';
 			}
 
-			return '\n\t\t\t' + vorotaMsg + '\n\t\t\t\u0417\u0430\u0431\u043E\u0440: (' + prolet.getPrice() + ' \u0440\u0443\u0431.) <br> \n\t\t\t- \u0441\u0442\u043E\u043B\u0431\u044B <small>' + stolbSize + 'x' + stolbSize + '</small>: <strong>' + prolet.getStolbCount() + '</strong> <br>\n\t\t\t- \u043F\u0440\u043E\u043B\u0435\u0442\u044B: <strong>' + prolet.getProletCount() + '</strong> <br>\n\t\t\t<hr />\n\t\t\t' + installMsg + '\n\t\t\t<strong>\u0418\u0442\u043E\u0433\u043E:</strong> ' + price + ' \u0440\u0443\u0431.\n\t\t';
+			return '\n\t\t\t' + vorotaMsg + '\n\t\t\t\u0417\u0430\u0431\u043E\u0440: (' + prolet.getPrice() + ' \u0440\u0443\u0431.) <br> \n\t\t\t- \u0441\u0442\u043E\u043B\u0431\u044B <small>' + stolbSize + 'x' + stolbSize + '</small>: <strong>' + prolet.getStolbCount() + '</strong> <br>\n\t\t\t- \u043F\u0440\u043E\u043B\u0435\u0442\u044B: <strong>' + prolet.getProletCount() + '</strong> <br>\n\t\t\t<hr />\n\t\t\t' + installMsg + '\n\t\t\t<strong>\u0418\u0442\u043E\u0433\u043E: ' + price + ' \u0440\u0443\u0431.</strong> \n\t\t';
 		}
 	}, {
 		key: 'showMessage',

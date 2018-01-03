@@ -37,7 +37,7 @@ class Result {
 			- пролеты: <strong>${prolet.getProletCount()}</strong> <br>
 			<hr />
 			${installMsg}
-			<strong>Итого:</strong> ${price} руб.
+			<strong>Итого: ${price} руб.</strong> 
 		`;
 	}
 	showMessage() {
