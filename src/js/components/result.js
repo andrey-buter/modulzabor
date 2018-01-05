@@ -38,5 +38,5 @@ export default {
 	template: `
 		<div class="card" ng-bind-html="$ctrl.showMessage()"></div>
 	`,
-	controller: Result
+	controller: Result,
 }

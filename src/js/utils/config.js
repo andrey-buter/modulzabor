@@ -83,7 +83,7 @@ const GLOBALS = {
 			label: 'плетёнка',
 			price: 150,
 		},
-	]
+	],
 }
 
 export default GLOBALS;
