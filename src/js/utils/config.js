@@ -1,5 +1,5 @@
 const GLOBALS = {
-	prolet: {
+	zokolPlita: {
 		size: 275,
 		price: 45,
 	},
@@ -30,7 +30,7 @@ const GLOBALS = {
 	],
 	installation: [
 		{
-			id: 'without',
+			id: 'without', // used for element id
 			label: 'Без установки',
 			price: 0,
 		},
@@ -48,6 +48,40 @@ const GLOBALS = {
 		{
 			id: 'we',
 			label: 'С доставкой',
+		},
+	],
+	zapolnenie: [
+		{
+			label: 'Ничего',
+			price: 0,
+		},
+		{
+			label: 'одностор верт штакетник',
+			price: 105,
+		},
+		{
+			label: 'двухстор верт штакетник',
+			price: 165,
+		},
+		{
+			label: 'одностор ранче',
+			price: 125,
+		},
+		{
+			label: 'двухстор ранчё',
+			price: 185,
+		},
+		{
+			label: 'оностр штакет полу круг',
+			price: 135,
+		},
+		{
+			label: 'двухстор штак полукруг',
+			price: 195,
+		},
+		{
+			label: 'плетёнка',
+			price: 150,
 		},
 	]
 }

@@ -8,36 +8,16 @@ class Result {
 		let vorota = this.result.vorota;
 		let prolet = this.result.prolet;
 		let install = this.result.install;
+		let zapolnenie = this.result.zapolnenie;
 
-		let price = vorota.getPrice() + prolet.getPrice() + install.getPrice();
-		let vorotaMsg = '';
-		let installMsg = '';
-
-		let stolbSize = prolet.stolbSize;
-
-		if ( vorota.getStolbCount() > 0 ) {
-			vorotaMsg = `
-				Ворота и калитка: (${vorota.getPrice()} руб.) <br>
-				- усиленные столбы <small>${vorota.stolbSize}x${vorota.stolbSize}</small>: <strong>${vorota.getStolbCount()}</strong>  <br>
-				<hr />
-			`;			
-		}
-
-		if ( install.getPrice() > 0 ) {
-			installMsg = `
-				Установка: ${install.getLength()} м.п. - ${install.getPrice()} руб. <br> 
-				<hr />
-			`;
-		}
+		let price = vorota.getPrice() + prolet.getPrice() + install.getPrice() + zapolnenie.getPrice();
 
 		return `
-			${vorotaMsg}
-			Забор: (${prolet.getPrice()} руб.) <br> 
-			- столбы <small>${stolbSize}x${stolbSize}</small>: <strong>${prolet.getStolbCount()}</strong> <br>
-			- пролеты: <strong>${prolet.getProletCount()}</strong> <br>
-			<hr />
-			${installMsg}
-			<strong>Итого: ${price} руб.</strong> 
+			${prolet.getMsg()}
+			${vorota.getMsg()}
+			${install.getMsg()}
+			${zapolnenie.getMsg()}
+			${prolet.result( price )}
 		`;
 	}
 	showMessage() {

@@ -1,5 +1,9 @@
-export default class Install {
+import ResultMessage from './abstract.ResultMessage';
+
+export default class Install extends ResultMessage {
 	constructor( length, installType ) {
+		super();
+
 		this.length = length / 100;
 		this.type = installType;
 	}
@@ -10,5 +14,16 @@ export default class Install {
 
 	getLength() {
 		return this.length;
+	}
+	getMsg() {
+		let price = this.getPrice();
+
+		if ( 0 >= price ) 
+			return '';
+
+		return this.join([
+			this.title( 'Установка' ),
+			this.message( '&nbsp;', `${this.length} м.п.`, price ),
+		]);
 	}
 }

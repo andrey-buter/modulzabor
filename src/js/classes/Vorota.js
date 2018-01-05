@@ -1,6 +1,6 @@
-import Result from './Result';
+import Zabor from './abstract.Zabor';
 
-export default class Vorota extends Result {
+export default class Vorota extends Zabor {
 	constructor( stolbSize, vorotaPosition = 'without' ) {
 		super();
 
@@ -24,5 +24,17 @@ export default class Vorota extends Result {
 				this.stolbCount = 4;
 			break;
 		}
+	}
+	getMsg() {
+		let count = this.stolbCount;
+
+		if ( 0 >= count ) 
+			return '';
+
+		return this.join([
+			this.title( 'Ворота и калитка' ),
+			this.message( `усиленные столбы <small>${this.stolbSize}x${this.stolbSize}</small>`, count, this.getStolbPrice() ),
+			this.message( 'пролеты', this.proletCount, this.getPrice() ),
+		]);
 	}
 }

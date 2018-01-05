@@ -1,6 +1,6 @@
-import Result from './Result';
+import Zabor from './abstract.Zabor';
 
-export default class Prolet extends Result {
+export default class Prolet extends Zabor {
 	constructor( stolbSize, length = 0, isCalcFirst = true ) {
 		super();
 
@@ -14,7 +14,7 @@ export default class Prolet extends Result {
 		this.setStolbPrice();
 	}
 	get() {
-		return this.stolbSize + this._prolet.size;
+		return this.stolbSize + this._zokolPlita.size;
 	}
 	calcCount() {
 		let length = this.length;
@@ -27,5 +27,12 @@ export default class Prolet extends Result {
 		this.proletCount = length > 0 ? Math.ceil( length / this.get() ) : 1;
 
 		this.stolbCount += this.proletCount;
+	}
+	getMsg() {
+		return this.join([
+			this.title( 'Забор' ),
+			this.message( `столбы <small>${this.stolbSize}x${this.stolbSize}</small>`, this.stolbCount, this.getStolbPrice() ),
+			this.message( 'пролеты', this.proletCount, this.getProletPrice() ),
+		]);
 	}
 }
