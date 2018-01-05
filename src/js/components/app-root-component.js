@@ -79,8 +79,8 @@ export default {
 				</label>
 			</div>
 			<div ng-if="+$ctrl.generalLength > 0">
-				<div>
-					<label ng-repeat="size in $ctrl.stolbs" for="size-{{ size }}">
+				<div class="form-stolbs form-radio">
+					<div class="form-stolb-item form-radio-item" ng-repeat="size in $ctrl.stolbs">
 						<input
 							id="size-{{ size }}" 
 							type="radio" 
@@ -88,14 +88,16 @@ export default {
 							ng-value="size"
 							ng-change="$ctrl.calc()"
 						>
-						{{ size }}
-					</label>
+						<label for="size-{{ size }}">
+							{{ size }}x{{ size }}
+						</label>
+					</div>
 				</div>
 				<hr />
 				<div>
 					Ворота и калитка
-					<div ng-repeat="position in $ctrl.vorotaPositions">
-						<label for="position-{{ position.id }}">
+					<div class="form-radio">
+						<div class="form-radio-item" ng-repeat="position in $ctrl.vorotaPositions">
 							<input 
 								id="position-{{ position.id }}"
 								type="radio"
@@ -103,8 +105,10 @@ export default {
 								ng-value="position"
 								ng-change="$ctrl.calc()"
 							>
-							{{ position.label }}
-						</label>
+							<label for="position-{{ position.id }}">
+								{{ position.label }}
+							</label>
+						</div>
 					</div>
 					<div ng-if="$ctrl.includeVorota">
 						<label for="kalitkaLength">
@@ -132,8 +136,8 @@ export default {
 				<hr />
 				<div>
 					Установка
-					<div ng-repeat="install in $ctrl.installation">
-						<label for="install-{{ install.id }}">
+					<div class="form-radio">
+						<div class="form-radio-item" ng-repeat="install in $ctrl.installation">
 							<input 
 								id="install-{{ install.id }}"
 								type="radio"
@@ -141,14 +145,16 @@ export default {
 								ng-value="install"
 								ng-change="$ctrl.calc()"
 							>
-							{{ install.label }}
-						</label>
+							<label for="install-{{ install.id }}">
+								{{ install.label }}
+							</label>
+						</div>
 					</div>
 				</div>
 				<hr />
 				<div>
 					Деревянные пролеты
-					<div>
+					<div class="form-select">
 						<select 
 							ng-model="$ctrl.zapolnenieType"
 							ng-options="type.label for type in $ctrl.zapolnenie"
@@ -159,8 +165,8 @@ export default {
 				<hr />
 				<div>
 					Доставка
-					<div ng-repeat="item in $ctrl.delivery">
-						<label for="delivery-{{ item.id }}">
+					<div class="form-radio">
+						<div class="form-radio-item" ng-repeat="item in $ctrl.delivery">
 							<input 
 								id="delivery-{{ item.id }}"
 								type="radio"
@@ -168,8 +174,10 @@ export default {
 								ng-value="item"
 								ng-change="$ctrl.calc()"
 							>
-							{{ item.label }}
-						</label>
+							<label for="delivery-{{ item.id }}">
+								{{ item.label }}
+							</label>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -8,9 +8,9 @@
 // @import "core/mixins/fonts";
 // @import "core/mixins/mixins";
 
-// @import "core/reset";
+@import "core/reset";
 // @import "core/bootstrap";
-// @import "core/formatting";
+@import "core/formatting";
 // @import "core/layout";
 // @import "core/grid";
 
@@ -26,3 +26,4 @@
 @import 'app-shell/_toast';
 
 @import "main";
+@import "result";

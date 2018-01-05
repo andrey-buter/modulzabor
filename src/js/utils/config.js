@@ -16,7 +16,7 @@ const GLOBALS = {
 	},
 	vorotaPositions: [
 		{
-			label: 'Без ворот',
+			label: 'Без',
 			id: 'without'
 		},
 		{
