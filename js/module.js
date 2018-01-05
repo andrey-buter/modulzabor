@@ -123,7 +123,7 @@ var Prolet = function (_Zabor) {
 	}, {
 		key: 'getMsg',
 		value: function getMsg() {
-			return this.join([this.title('Забор'), this.message('\u0441\u0442\u043E\u043B\u0431\u044B <small>' + this.stolbSize + 'x' + this.stolbSize + '</small>', this.stolbCount, this.getStolbPrice()), this.message('пролеты', this.proletCount, this.getProletPrice())]);
+			return this.join([this.title('Забор'), this.message('\u0441\u0442\u043E\u043B\u0431\u044B <small>' + this.stolbSize + 'x' + this.stolbSize + '</small>', this.stolbCount, this.getStolbPrice()), this.message('цокольная плита', this.proletCount, this.getProletPrice())]);
 		}
 	}]);
 
