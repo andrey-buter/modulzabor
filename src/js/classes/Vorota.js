@@ -34,7 +34,6 @@ export default class Vorota extends Zabor {
 		return this.join([
 			this.title( 'Ворота и калитка' ),
 			this.message( `усиленные столбы <small>${this.stolbSize}x${this.stolbSize}</small>`, count, this.getStolbPrice() ),
-			this.message( 'пролеты', this.proletCount, this.getPrice() ),
 		]);
 	}
 }

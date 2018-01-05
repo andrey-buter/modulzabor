@@ -195,7 +195,7 @@ var Vorota = function (_Zabor) {
 
 			if (0 >= count) return '';
 
-			return this.join([this.title('Ворота и калитка'), this.message('\u0443\u0441\u0438\u043B\u0435\u043D\u043D\u044B\u0435 \u0441\u0442\u043E\u043B\u0431\u044B <small>' + this.stolbSize + 'x' + this.stolbSize + '</small>', count, this.getStolbPrice()), this.message('пролеты', this.proletCount, this.getPrice())]);
+			return this.join([this.title('Ворота и калитка'), this.message('\u0443\u0441\u0438\u043B\u0435\u043D\u043D\u044B\u0435 \u0441\u0442\u043E\u043B\u0431\u044B <small>' + this.stolbSize + 'x' + this.stolbSize + '</small>', count, this.getStolbPrice())]);
 		}
 	}]);
 
