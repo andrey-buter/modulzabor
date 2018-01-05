@@ -288,12 +288,12 @@ var ResultMessage = function () {
 	}, {
 		key: 'message',
 		value: function message(title, count, price) {
-			return this._block(title, count, price + ' \u0440\u0443\u0431.', 'result-message-item');
+			return this._block(title, count, '' + price, 'result-message-item');
 		}
 	}, {
 		key: 'result',
 		value: function result(price) {
-			return this._block('Итого:', '', price + ' \u0440\u0443\u0431.', 'result-item');
+			return this._block('Итого (руб.):', '', '' + price, 'result-item');
 		}
 	}, {
 		key: '_block',
