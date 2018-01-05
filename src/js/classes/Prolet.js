@@ -31,8 +31,8 @@ export default class Prolet extends Zabor {
 	getMsg() {
 		return this.join([
 			this.title( 'Забор' ),
-			this.message( `столбы <small>${this.stolbSize}x${this.stolbSize}</small>`, this.stolbCount, this.getStolbPrice() ),
-			this.message( 'цокольная плита', this.proletCount, this.getProletPrice() ),
+			this.message( `столбы <small>${this.stolbSize}x${this.stolbSize}</small>`, `${this.stolbCount} шт.`, this.getStolbPrice() ),
+			this.message( 'цокольная плита', `${this.proletCount} шт.`, this.getProletPrice() ),
 		]);
 	}
 }

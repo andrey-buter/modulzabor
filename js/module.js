@@ -123,7 +123,7 @@ var Prolet = function (_Zabor) {
 	}, {
 		key: 'getMsg',
 		value: function getMsg() {
-			return this.join([this.title('Забор'), this.message('\u0441\u0442\u043E\u043B\u0431\u044B <small>' + this.stolbSize + 'x' + this.stolbSize + '</small>', this.stolbCount, this.getStolbPrice()), this.message('цокольная плита', this.proletCount, this.getProletPrice())]);
+			return this.join([this.title('Забор'), this.message('\u0441\u0442\u043E\u043B\u0431\u044B <small>' + this.stolbSize + 'x' + this.stolbSize + '</small>', this.stolbCount + ' \u0448\u0442.', this.getStolbPrice()), this.message('цокольная плита', this.proletCount + ' \u0448\u0442.', this.getProletPrice())]);
 		}
 	}]);
 
@@ -195,7 +195,7 @@ var Vorota = function (_Zabor) {
 
 			if (0 >= count) return '';
 
-			return this.join([this.title('Ворота и калитка'), this.message('\u0443\u0441\u0438\u043B\u0435\u043D\u043D\u044B\u0435 \u0441\u0442\u043E\u043B\u0431\u044B <small>' + this.stolbSize + 'x' + this.stolbSize + '</small>', count, this.getStolbPrice())]);
+			return this.join([this.title('Ворота и калитка'), this.message('\u0443\u0441\u0438\u043B\u0435\u043D\u043D\u044B\u0435 \u0441\u0442\u043E\u043B\u0431\u044B <small>' + this.stolbSize + 'x' + this.stolbSize + '</small>', count + ' \u0448\u0442.', this.getStolbPrice())]);
 		}
 	}]);
 
@@ -255,7 +255,7 @@ var Zapolnenie = function (_ResultMessage) {
 
 			if (0 >= price) return '';
 
-			return this.join([this.title('Деревянное заполнение'), this.message(this.type.label, this.zokolCount, price)]);
+			return this.join([this.title('Деревянное заполнение'), this.message(this.type.label, this.zokolCount + ' \u0448\u0442.', price)]);
 		}
 	}]);
 

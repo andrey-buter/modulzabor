@@ -23,7 +23,7 @@ export default class Zapolnenie extends ResultMessage {
 
 		return this.join([
 			this.title( 'Деревянное заполнение' ),
-			this.message( this.type.label, this.zokolCount, price ),
+			this.message( this.type.label, `${this.zokolCount} шт.`, price ),
 		]);
 	}
 }
